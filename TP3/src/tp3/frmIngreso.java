@@ -5,6 +5,8 @@
  */
 package tp3;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author camila biarnes
@@ -29,12 +31,12 @@ public class frmIngreso extends javax.swing.JFrame {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
-        btnRegistro = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtEmail = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        btnRegistro = new javax.swing.JButton();
         lblMuestra = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,14 +45,6 @@ public class frmIngreso extends javax.swing.JFrame {
         jDesktopPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
-
-        btnRegistro.setText("Registrar");
-        btnRegistro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnRegistro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistroActionPerformed(evt);
-            }
-        });
 
         jScrollPane1.setViewportView(txtEmail);
 
@@ -66,6 +60,13 @@ public class frmIngreso extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
         jLabel2.setText("Contraseña");
 
+        btnRegistro.setText("Registrarme");
+        btnRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -77,10 +78,13 @@ public class frmIngreso extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(73, 73, 73)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnRegistro)
                     .addComponent(jScrollPane1)
                     .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
                 .addContainerGap(83, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,9 +97,9 @@ public class frmIngreso extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(27, 27, 27)
                 .addComponent(btnRegistro)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         lblMuestra.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -144,17 +148,27 @@ public class frmIngreso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
-        // TODO add your handling code here:
-      
-        System.out.println("Bienvenido" + txtEmail.getText() );
-      
-        
-    }//GEN-LAST:event_btnRegistroActionPerformed
-
     private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraseñaActionPerformed
+
+    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
+
+
+  String email = txtEmail.getText();
+    String password = txtContraseña.getText(); 
+
+    if (email.equals("alumno@ulp.edu.ar") && password.equals("12345678")) {
+        JOptionPane.showMessageDialog(this, "Bienvenido " + email);
+    } else {
+        JOptionPane.showMessageDialog(this, "Usuario y/o contraseña incorrectos");
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnRegistroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,7 +204,7 @@ public class frmIngreso extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton btnRegistro;
+    private javax.swing.JButton btnRegistro;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
